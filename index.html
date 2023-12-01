@@ -42,6 +42,12 @@
                 <button id="offButton" class="offButton">OFF</button>
                 <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
             </div>
+          <div class="card">
+                <h2>Control GPIO 5</h2>
+                <button id="r1onButton" class="r1onButton">ON</button>
+                <button id="r1offButton" class="r1offButton">OFF</button>
+                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
+            </div>
         </div>
     </div>
     <div class="footer">
@@ -55,6 +61,8 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
+    const r1onButton = document.getElementById('r1onButton');
+    const r1offButton = document.getElementById('r1offButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
@@ -84,6 +92,8 @@
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic(1));
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
+    r1onButton.addEventListener('click', () => writeOnCharacteristic(2));
+    r1offButton.addEventListener('click', () => writeOnCharacteristic(3));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
