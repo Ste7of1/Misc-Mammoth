@@ -26,7 +26,7 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 .card {
-    background-color: light yellow;
+    background-color: LightYellow;
     box-shadow: 2px 2px 12px 1px rgba(140,140,140,.5);
 }
 button {
