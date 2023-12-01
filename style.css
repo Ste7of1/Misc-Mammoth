@@ -67,6 +67,11 @@ button {
     font-size: 1rem;
 }
 
+.r1gray-label {
+    color: #bebebe;
+    font-size: 1rem;
+}
+
 .reading {
     font-size: 1.8rem;
 }
