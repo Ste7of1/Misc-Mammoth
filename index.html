@@ -41,9 +41,22 @@
                 <button id="onButton" class="onButton">ON</button>
                 <button id="offButton" class="offButton">OFF</button>
                        
-                <h2>Control GPIO 25</h2>
+                <h2>Control GPIO 23</h2>
                 <button id="r1onButton" class="r1onButton">ON</button>
                 <button id="r1offButton" class="r1offButton">OFF</button>
+
+                <h2>Control GPIO 22</h2>
+                <button id="r1onButton" class="r2onButton">ON</button>
+                <button id="r1offButton" class="r2offButton">OFF</button>
+
+                <h2>Control GPIO 25</h2>
+                <button id="r1onButton" class="r3onButton">ON</button>
+                <button id="r1offButton" class="r3offButton">OFF</button>
+
+                <h2>Control GPIO 26</h2>
+                <button id="r1onButton" class="r4onButton">ON</button>
+                <button id="r1offButton" class="r4offButton">OFF</button>
+              
                 <p class="gray-label">Last value sent: <span id="valueSent"></span></p> 
             </div>
         </div>
@@ -61,6 +74,12 @@
     const offButton = document.getElementById('offButton');
     const r1onButton = document.getElementById('r1onButton');
     const r1offButton = document.getElementById('r1offButton');
+    const r2onButton = document.getElementById('r21onButton');
+    const r2offButton = document.getElementById('r2offButton');
+    const r3onButton = document.getElementById('r3onButton');
+    const r3offButton = document.getElementById('r3offButton');
+    const r4onButton = document.getElementById('r41onButton');
+    const r4offButton = document.getElementById('r4offButton');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
     const bleStateContainer = document.getElementById('bleState');
@@ -92,6 +111,12 @@
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
     r1onButton.addEventListener('click', () => writeOnCharacteristic(2));
     r1offButton.addEventListener('click', () => writeOnCharacteristic(3));
+    r2onButton.addEventListener('click', () => writeOnCharacteristic(4));
+    r2offButton.addEventListener('click', () => writeOnCharacteristic(5));
+    r3onButton.addEventListener('click', () => writeOnCharacteristic(6));
+    r3offButton.addEventListener('click', () => writeOnCharacteristic(7));
+    r4onButton.addEventListener('click', () => writeOnCharacteristic(8));
+    r4offButton.addEventListener('click', () => writeOnCharacteristic(9));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
