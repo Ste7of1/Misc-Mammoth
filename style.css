@@ -54,6 +54,30 @@ button {
     background-color: #5f6c6d;
 }
 
+.r2onButton{
+    background-color: #1b8a94;
+}
+
+.r2offButton{
+    background-color: #5f6c6d;
+}
+
+.r3onButton{
+    background-color: #1b8a94;
+}
+
+.r3offButton{
+    background-color: #5f6c6d;
+}
+
+.r4onButton{
+    background-color: #1b8a94;
+}
+
+.r4offButton{
+    background-color: #5f6c6d;
+}
+
 .connectButton{
     background-color: #24af37;
 }
