@@ -1,9 +1,11 @@
 <!--
-  Rui Santos
-  Complete project details at https://RandomNerdTutorials.com/esp32-web-bluetooth/
+  THis Code provides a user interface to control switching on Lights  via relay control using the esp32.
+  User interface is either via physical momentary button switches or a Bluetooth Web App using BLE between phone/tablet
+  and the esp32 BLE.  The web app is also available via web browser connected to github...
 
-  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files.
-  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+  Button debounce is handled via Acebutton library
+  
+  basis for the BLE code originated with Rui Santos at https://RandomNerdTutorials.com/esp32-web-bluetooth/ 
 -->
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@
         </div>
         <div class="card-grid">
             <div class="card">
-                <h2>Fetched Value</h2>
+                <h2>Connection Time (secs)</h2>
                 <p class="reading"><span id="valueContainer">NaN</span></p>
                 <p class="gray-label">Last reading: <span id="timestamp"></span></p
             </div>
