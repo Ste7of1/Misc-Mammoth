@@ -1,5 +1,8 @@
 <!--
-  THis Code provides a user interface to control switching on Lights  via relay control using the esp32.
+  
+  updated 12/12/23 added LED status images on Web Interface Panel
+  
+  THis Code provides a user interface to control switching on Lights via relay control using the esp32.
   User interface is either via physical momentary button switches or a Bluetooth Web App using BLE between phone/tablet
   and the esp32 BLE.  The web app is also available via web browser connected to github...
 
@@ -40,24 +43,29 @@
 
             <div class="card">
                 <h2>All Lights</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
+                <button id="onButton" class="onButton" onclick="changeImage('LED.png')">ON</button>
+                <button id="offButton" class="offButton" onclick="changeImage('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="AllLights"  src="LEDoff.png"/> <br />	
                        
                 <h2>Control Relay 1</h2>
-                <button id="r1onButton" class="r1onButton">ON</button>
-                <button id="r1offButton" class="r1offButton">OFF</button>
+                <button id="r1onButton" class="r1onButton" onclick="changeImage1('LED.png')">ON</button>
+                <button id="r1offButton" class="r1offButton" onclick="changeImage1('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="DrvrFrnt"  src="LEDoff.png"/> <br />	
 
                 <h2>Control Relay 2</h2>
-                <button id="r2onButton" class="r2onButton">ON</button>
-                <button id="r2offButton" class="r2offButton">OFF</button>
+                <button id="r2onButton" class="r2onButton" onclick="changeImage2('LED.png')">ON</button>
+                <button id="r2offButton" class="r2offButton" onclick="changeImage2('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="DrvrRear"  src="LEDoff.png"/> <br />	
 
                 <h2>Control Relay 3</h2>
-                <button id="r3onButton" class="r3onButton">ON</button>
-                <button id="r3offButton" class="r3offButton">OFF</button>
+                <button id="r3onButton" class="r3onButton" onclick="changeImage3('LED.png')">ON</button>
+                <button id="r3offButton" class="r3offButton" onclick="changeImage3('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="PassFrnt"  src="LEDoff.png"/> <br />	
 
                 <h2>Control Relay 4</h2>
-                <button id="r4onButton" class="r4onButton">ON</button>
-                <button id="r4offButton" class="r4offButton">OFF</button>
+                <button id="r4onButton" class="r4onButton"onclick="changeImage4('LED.png')">ON</button>
+                <button id="r4offButton" class="r4offButton" onclick="changeImage4('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="PassRear"  src="LEDoff.png"/> <br />	
               
                 <p class="gray-label">Last value sent: <span id="valueSent"></span></p> 
             </div>
@@ -252,6 +260,47 @@
         return datetime;
     }
 
+    function changeImage(filename) {
+        let img = document.querySelector("#AllLights");
+		img.setAttribute("src", filename);
+		if(filename == 'LED.png') {
+		   changeImage1(filename);
+		   changeImage2(filename);
+		   changeImage3(filename);
+		   changeImage4(filename);
+		}
+		
+    }
+    function changeImage1(filename) {
+        let img = document.querySelector("#DrvrFrnt");
+		img.setAttribute("src", filename);
+		if(filename == 'LEDoff.png') {
+		   changeImage(filename);
+		}
+    }
+    function changeImage2(filename) {
+        let img = document.querySelector("#DrvrRear");
+		img.setAttribute("src", filename);			
+ 		if(filename == 'LEDoff.png') {
+		   changeImage(filename);
+	    }
+   }
+    function changeImage3(filename) {
+        let img = document.querySelector("#PassFrnt");
+		img.setAttribute("src", filename);			
+		if(filename == 'LEDoff.png') {
+		   changeImage(filename);
+		}
+    }
+    function changeImage4(filename) {
+        let img = document.querySelector("#PassRear");
+		img.setAttribute("src", filename);			
+		if(filename == 'LEDoff.png') {
+		   changeImage(filename);
+		}
+    }
+	
+    
 
 </script>
 
