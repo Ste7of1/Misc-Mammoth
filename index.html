@@ -46,8 +46,10 @@
                 <button id="onButton" class="onButton" onclick="changeImage('LED.png')">ON</button>
                 <button id="offButton" class="offButton" onclick="changeImage('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="AllLights"  src="LEDoff.png"/> <br />	
-				
-				<h2><pre class="tab4"> Driver Side    Passenger Side</pre></h2>
+
+<!-- <pre class="tab4"> Driver Side    Passenger Side</pre>	-->
+			
+				<h2> Driver Side    Passenger Side</h2>
                 <button id="DSonButton" class="DSonButton" onclick="changeImageDS('LED.png')">ON</button>
                 <button id="DSoffButton" class="DSoffButton" onclick="changeImageDS('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="DrvrLights"  src="LEDoff.png"/> 
@@ -191,7 +193,6 @@
         .then(value => {
             console.log("Read value: ", value);
             const decodedValue = new TextDecoder().decode(value);
-//			const decodedValue = value;
             console.log("Decoded value: ", decodedValue);
             retrievedValue.innerHTML = decodedValue;
         })
@@ -290,7 +291,7 @@
     }
 	
 	function changeImageDS(filename) {
-        let img = document.querySelector("#DSLights");
+        let img = document.querySelector("#DrvrLights");
 		img.setAttribute("src", filename);
 		if(filename == 'DS.png') {
 		   changeImage1(filename);		   
@@ -299,7 +300,7 @@
     }
 
 	function changeImagePS(filename) {
-        let img = document.querySelector("#DSLights");
+        let img = document.querySelector("#PassLights");
 		img.setAttribute("src", filename);
 		if(filename == 'PS.png') {
 		   changeImage2(filename);		   
