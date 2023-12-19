@@ -46,23 +46,31 @@
                 <button id="onButton" class="onButton" onclick="changeImage('LED.png')">ON</button>
                 <button id="offButton" class="offButton" onclick="changeImage('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="AllLights"  src="LEDoff.png"/> <br />	
+				
+				<h2><pre class="tab4"> Driver Side    Passenger Side</pre></h2>
+                <button id="DSonButton" class="DSonButton" onclick="changeImageD('LED.png')">ON</button>
+                <button id="DSoffButton" class="DSoffButton" onclick="changeImageD('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="DrvrLights"  src="LEDoff.png"/> 
+				<button id="PSonButton" class="PSonButton" onclick="changeImageP('LED.png')">ON</button>
+                <button id="PSoffButton" class="PSoffButton" onclick="changeImageP('LEDoff.png')">OFF</button>
+				<img height="30"  width="30" id="PassLights"  src="LEDoff.png"/> <br />	
                        
-                <h2>Control Relay 1</h2>
+                <h3>Control Relay 1</h3>
                 <button id="r1onButton" class="r1onButton" onclick="changeImage1('LED.png')">ON</button>
                 <button id="r1offButton" class="r1offButton" onclick="changeImage1('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="DrvrFrnt"  src="LEDoff.png"/> <br />	
 
-                <h2>Control Relay 2</h2>
+                <h3>Control Relay 2</h3>
                 <button id="r2onButton" class="r2onButton" onclick="changeImage2('LED.png')">ON</button>
                 <button id="r2offButton" class="r2offButton" onclick="changeImage2('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="DrvrRear"  src="LEDoff.png"/> <br />	
 
-                <h2>Control Relay 3</h2>
+                <h3>Control Relay 3</h3>
                 <button id="r3onButton" class="r3onButton" onclick="changeImage3('LED.png')">ON</button>
                 <button id="r3offButton" class="r3offButton" onclick="changeImage3('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="PassFrnt"  src="LEDoff.png"/> <br />	
 
-                <h2>Control Relay 4</h2>
+                <h3>Control Relay 4</h3>
                 <button id="r4onButton" class="r4onButton"onclick="changeImage4('LED.png')">ON</button>
                 <button id="r4offButton" class="r4offButton" onclick="changeImage4('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="PassRear"  src="LEDoff.png"/> <br />	
@@ -83,6 +91,10 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
+    const DSonButton = document.getElementById('DSonButton');
+    const DSoffButton = document.getElementById('DSoffButton');
+    const PSonButton = document.getElementById('PSonButton');
+    const PSoffButton = document.getElementById('PSoffButton');
     const r1onButton = document.getElementById('r1onButton');
     const r1offButton = document.getElementById('r1offButton');
     const r2onButton = document.getElementById('r2onButton');
@@ -120,6 +132,10 @@
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic(1));
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
+    DSonButton.addEventListener('click', () => writeOnCharacteristic(A));
+    DSoffButton.addEventListener('click', () => writeOnCharacteristic(a));
+    PSonButton.addEventListener('click', () => writeOnCharacteristic(B));
+    PSoffButton.addEventListener('click', () => writeOnCharacteristic(b));
     r1onButton.addEventListener('click', () => writeOnCharacteristic(2));
     r1offButton.addEventListener('click', () => writeOnCharacteristic(3));
     r2onButton.addEventListener('click', () => writeOnCharacteristic(4));
@@ -269,8 +285,27 @@
 		   changeImage3(filename);
 		   changeImage4(filename);
 		}
-		
     }
+	
+	function changeImageDS(filename) {
+        let img = document.querySelector("#DSLights");
+		img.setAttribute("src", filename);
+		if(filename == 'DS.png') {
+		   changeImage1(filename);		   
+		   changeImage3(filename);		   
+		}
+    }
+
+	function changeImagePS(filename) {
+        let img = document.querySelector("#DSLights");
+		img.setAttribute("src", filename);
+		if(filename == 'PS.png') {
+		   changeImage2(filename);		   
+		   changeImage4(filename);		   
+		}
+    }
+
+	
     function changeImage1(filename) {
         let img = document.querySelector("#DrvrFrnt");
 		img.setAttribute("src", filename);
