@@ -220,7 +220,7 @@
             .then(characteristic => {
                 console.log("Found the LED characteristic: ", characteristic.uuid);
                 const data = new Uint8Array([value]);
-                return characteristic.writeValue(value);
+                return characteristic.writeValue(data);
             })
             .then(() => {
                 latestValueSent.innerHTML = value;
