@@ -190,7 +190,8 @@
         })
         .then(value => {
             console.log("Read value: ", value);
-            const decodedValue = new TextDecoder().decode(value);
+//            const decodedValue = new TextDecoder().decode(value);
+			const decodedValue = value;
             console.log("Decoded value: ", decodedValue);
             retrievedValue.innerHTML = decodedValue;
         })
