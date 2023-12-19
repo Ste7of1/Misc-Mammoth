@@ -46,13 +46,15 @@
                 <button id="onButton" class="onButton" onclick="changeImage('LED.png')">ON</button>
                 <button id="offButton" class="offButton" onclick="changeImage('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="AllLights"  src="LEDoff.png"/> <br />	
-				
-				<h2><pre class="tab4"> Driver Side    Passenger Side</pre></h2>
-                <button id="DSonButton" class="DSonButton" onclick="changeImageD('LED.png')">ON</button>
-                <button id="DSoffButton" class="DSoffButton" onclick="changeImageD('LEDoff.png')">OFF</button>
+
+<!-- <pre class="tab4"> Driver Side    Passenger Side</pre>	-->
+			
+				<h2> Driver Side    Passenger Side</h2>
+                <button id="DSonButton" class="DSonButton" onclick="changeImageDS('LED.png')">ON</button>
+                <button id="DSoffButton" class="DSoffButton" onclick="changeImageDS('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="DrvrLights"  src="LEDoff.png"/> 
-				<button id="PSonButton" class="PSonButton" onclick="changeImageP('LED.png')">ON</button>
-                <button id="PSoffButton" class="PSoffButton" onclick="changeImageP('LEDoff.png')">OFF</button>
+				<button id="PSonButton" class="PSonButton" onclick="changeImagePS('LED.png')">ON</button>
+                <button id="PSoffButton" class="PSoffButton" onclick="changeImagePS('LEDoff.png')">OFF</button>
 				<img height="30"  width="30" id="PassLights"  src="LEDoff.png"/> <br />	
                        
                 <h3>Control Relay 1</h3>
@@ -130,20 +132,20 @@
     disconnectButton.addEventListener('click', disconnectDevice);
 
     // Write to the ESP32 LED Characteristic
-    onButton.addEventListener('click', () => writeOnCharacteristic(1));
-    offButton.addEventListener('click', () => writeOnCharacteristic(0));
-    DSonButton.addEventListener('click', () => writeOnCharacteristic(A));
-    DSoffButton.addEventListener('click', () => writeOnCharacteristic(a));
-    PSonButton.addEventListener('click', () => writeOnCharacteristic(B));
-    PSoffButton.addEventListener('click', () => writeOnCharacteristic(b));
-    r1onButton.addEventListener('click', () => writeOnCharacteristic(2));
-    r1offButton.addEventListener('click', () => writeOnCharacteristic(3));
-    r2onButton.addEventListener('click', () => writeOnCharacteristic(4));
-    r2offButton.addEventListener('click', () => writeOnCharacteristic(5));
-    r3onButton.addEventListener('click', () => writeOnCharacteristic(6));
-    r3offButton.addEventListener('click', () => writeOnCharacteristic(7));
-    r4onButton.addEventListener('click', () => writeOnCharacteristic(8));
-    r4offButton.addEventListener('click', () => writeOnCharacteristic(9));
+    onButton.addEventListener('click', () => writeOnCharacteristic('1'));
+    offButton.addEventListener('click', () => writeOnCharacteristic('0'));
+    DSonButton.addEventListener('click', () => writeOnCharacteristic('A'));
+    DSoffButton.addEventListener('click', () => writeOnCharacteristic('a'));
+    PSonButton.addEventListener('click', () => writeOnCharacteristic('B'));
+    PSoffButton.addEventListener('click', () => writeOnCharacteristic('b'));
+    r1onButton.addEventListener('click', () => writeOnCharacteristic('2'));
+    r1offButton.addEventListener('click', () => writeOnCharacteristic('3'));
+    r2onButton.addEventListener('click', () => writeOnCharacteristic('4'));
+    r2offButton.addEventListener('click', () => writeOnCharacteristic('5'));
+    r3onButton.addEventListener('click', () => writeOnCharacteristic('6'));
+    r3offButton.addEventListener('click', () => writeOnCharacteristic('7'));
+    r4onButton.addEventListener('click', () => writeOnCharacteristic('8'));
+    r4offButton.addEventListener('click', () => writeOnCharacteristic('9'));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
@@ -220,7 +222,7 @@
             .then(characteristic => {
                 console.log("Found the LED characteristic: ", characteristic.uuid);
                 const data = new Uint8Array([value]);
-                return characteristic.writeValue(data);
+                return characteristic.writeValue(value);
             })
             .then(() => {
                 latestValueSent.innerHTML = value;
@@ -288,7 +290,7 @@
     }
 	
 	function changeImageDS(filename) {
-        let img = document.querySelector("#DSLights");
+        let img = document.querySelector("#DrvrLights");
 		img.setAttribute("src", filename);
 		if(filename == 'DS.png') {
 		   changeImage1(filename);		   
@@ -297,7 +299,7 @@
     }
 
 	function changeImagePS(filename) {
-        let img = document.querySelector("#DSLights");
+        let img = document.querySelector("#PassLights");
 		img.setAttribute("src", filename);
 		if(filename == 'PS.png') {
 		   changeImage2(filename);		   
