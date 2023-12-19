@@ -130,20 +130,20 @@
     disconnectButton.addEventListener('click', disconnectDevice);
 
     // Write to the ESP32 LED Characteristic
-    onButton.addEventListener('click', () => writeOnCharacteristic(1));
-    offButton.addEventListener('click', () => writeOnCharacteristic(0));
-    DSonButton.addEventListener('click', () => writeOnCharacteristic(A));
-    DSoffButton.addEventListener('click', () => writeOnCharacteristic(a));
-    PSonButton.addEventListener('click', () => writeOnCharacteristic(B));
-    PSoffButton.addEventListener('click', () => writeOnCharacteristic(b));
-    r1onButton.addEventListener('click', () => writeOnCharacteristic(2));
-    r1offButton.addEventListener('click', () => writeOnCharacteristic(3));
-    r2onButton.addEventListener('click', () => writeOnCharacteristic(4));
-    r2offButton.addEventListener('click', () => writeOnCharacteristic(5));
-    r3onButton.addEventListener('click', () => writeOnCharacteristic(6));
-    r3offButton.addEventListener('click', () => writeOnCharacteristic(7));
-    r4onButton.addEventListener('click', () => writeOnCharacteristic(8));
-    r4offButton.addEventListener('click', () => writeOnCharacteristic(9));
+    onButton.addEventListener('click', () => writeOnCharacteristic('1'));
+    offButton.addEventListener('click', () => writeOnCharacteristic('0'));
+    DSonButton.addEventListener('click', () => writeOnCharacteristic('A'));
+    DSoffButton.addEventListener('click', () => writeOnCharacteristic('a'));
+    PSonButton.addEventListener('click', () => writeOnCharacteristic('B'));
+    PSoffButton.addEventListener('click', () => writeOnCharacteristic('b'));
+    r1onButton.addEventListener('click', () => writeOnCharacteristic('2'));
+    r1offButton.addEventListener('click', () => writeOnCharacteristic('3'));
+    r2onButton.addEventListener('click', () => writeOnCharacteristic('4'));
+    r2offButton.addEventListener('click', () => writeOnCharacteristic('5'));
+    r3onButton.addEventListener('click', () => writeOnCharacteristic('6'));
+    r3offButton.addEventListener('click', () => writeOnCharacteristic('7'));
+    r4onButton.addEventListener('click', () => writeOnCharacteristic('8'));
+    r4offButton.addEventListener('click', () => writeOnCharacteristic('9'));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
@@ -190,8 +190,8 @@
         })
         .then(value => {
             console.log("Read value: ", value);
-//            const decodedValue = new TextDecoder().decode(value);
-			const decodedValue = value;
+            const decodedValue = new TextDecoder().decode(value);
+//			const decodedValue = value;
             console.log("Decoded value: ", decodedValue);
             retrievedValue.innerHTML = decodedValue;
         })
