@@ -134,10 +134,10 @@
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic('1'));
     offButton.addEventListener('click', () => writeOnCharacteristic('0'));
-    DSonButton.addEventListener('click', () => writeOnCharacteristic('A'));
-    DSoffButton.addEventListener('click', () => writeOnCharacteristic('a'));
-    PSonButton.addEventListener('click', () => writeOnCharacteristic('B'));
-    PSoffButton.addEventListener('click', () => writeOnCharacteristic('b'));
+    DSonButton.addEventListener('click', () => writeOnCharacteristic('10'));
+    DSoffButton.addEventListener('click', () => writeOnCharacteristic('11'));
+    PSonButton.addEventListener('click', () => writeOnCharacteristic('12'));
+    PSoffButton.addEventListener('click', () => writeOnCharacteristic('13'));
     r1onButton.addEventListener('click', () => writeOnCharacteristic('2'));
     r1offButton.addEventListener('click', () => writeOnCharacteristic('3'));
     r2onButton.addEventListener('click', () => writeOnCharacteristic('4'));
